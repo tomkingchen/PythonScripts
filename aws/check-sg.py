@@ -42,11 +42,11 @@ for region in ["ap-southeast-2","ap-southeast-1"]:
 				for ip_range in rule['IpRanges']:
 					cidr_block = ip_range['CidrIp']
                     if cidr_block == "0.0.0.0/0":
-                        print("%s contains \"Allow Any\" ingress rule" % (group_name)
+                    	print("%s contains \"Allow Any\" ingress rule" % (group_name))
 
 			#Is source/target an IP v6?
 			if len(rule['Ipv6Ranges']) > 0:
 				for ip_range in rule['Ipv6Ranges']:
 					cidr_block = ip_range['CidrIpv6']
                     if cidr_block == "::/0":
-                        print("%s contains \"Allow Any\" ingress rule" % (group_name)
+                        print("%s contains \"Allow Any\" ingress rule" % (group_name))
