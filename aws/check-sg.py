@@ -25,18 +25,6 @@ for region in ["ap-southeast-2","ap-southeast-1"]:
 		inbound = sg['IpPermissions']
 		print("%s,%s,%s" % ("","","Inbound"))
 		for rule in inbound:
-			if rule['IpProtocol'] == "-1":
-				traffic_type="All Trafic"
-				ip_protpcol="All"
-				to_port="All"
-			else:
-				ip_protpcol = rule['IpProtocol']
-				from_port=rule['FromPort']
-				to_port=rule['ToPort']
-				#If ICMP, report "N/A" for port #
-				if to_port == -1:
-					to_port = "N/A"
-
 			#Is source/target an IP v4?
 			if len(rule['IpRanges']) > 0:
 				for ip_range in rule['IpRanges']:
